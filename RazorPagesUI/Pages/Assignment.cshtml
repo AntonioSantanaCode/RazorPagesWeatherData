@@ -1,0 +1,116 @@
+﻿@page
+@model RazorPagesUI.Pages.AssignmentModel
+@{
+    ViewData["Title"] = "Assignment";
+}
+
+<div class="text-center">
+
+    <h1 class="justify-content-sm-center">Welcome Antonio the king! <span class="badge bg-secondary"> SQL</span></h1>
+    <p><strong>Press the buttons to extract data of your menu choice.</strong></p>
+
+</div>
+<div class="text-sm-center">
+    <p>Choose inside or outside to extract data for <strong>mold risk.</strong></p>
+</div>
+<div class="text-sm-center">
+    <form>
+        <a href="Assignment?id=1">
+            <input type="button" class="btn-dark" value="Inside" />
+        </a>
+        <a href="Assignment?id=2">
+            <input type="button" class="btn-dark" value="Outside" />
+        </a>
+    </form>
+    <hr />
+</div>
+
+<div class="text-sm-center">
+    <p>Choose fall or winter to extract data for <strong>meteorological fall/winter.</strong></p>
+</div>
+<div class="text-sm-center">
+    <form>
+        <a href="Assignment?id=3">
+            <input type="button" class="btn-dark" value="Fall" />
+        </a>
+        <a href="Assignment?id=4">
+            <input type="button" class="btn-dark" value="Winter" />
+        </a>
+    </form>
+    <hr />
+</div>
+
+<div class="text-sm-center">
+    <p>Choose inside or outside to extract data for <strong>hotest to coldest day.</strong></p>
+</div>
+<div class="text-sm-center">
+    <form>
+        <a href="Assignment?id=5">
+            <input type="button" class="btn-dark" value="Inside" />
+        </a>
+        <a href="Assignment?id=6">
+            <input type="button" class="btn-dark" value="Outside" />
+        </a>
+    </form>
+    <hr />
+</div>
+
+<div class="text-sm-center">
+    <p>Choose inside or outside to extract data for <strong>average humidity inside/outside.</strong></p>
+</div>
+<div class="text-sm-center">
+    <form>
+        <a href="Assignment?id=7">
+            <input type="button" class="btn btn-dark" value="Inside" />
+        </a>
+        <a href="Assignment?id=8">
+            <input type="button" class="btn btn-dark" value="Outside" />
+        </a>
+    </form>
+    <hr />
+</div>
+
+<div class="text-sm-center">
+    <p>Choose the date to extract <strong>average temperature by date inside & outside.</strong></p>
+</div>
+
+<div class="text-sm-center">
+    <form method="post">
+        <input value="" type="date" asp-for="@Model.UserInput"/>
+        <input type="submit" class="btn btn-dark" value="Get Data"/>     
+    </form>
+    <hr />
+</div>
+
+<div>
+    @if (Model.ResultDataInside != null)
+    {
+        <hr />
+        @foreach (var item in Model.ResultDataInside)
+        {
+            <h5 class="text-sm-center"><i>Average temperature Inside</i></h5>
+            <p class="text-sm-center p-sm-3 mb-2 bg-secondary text-white"><i>@item</i></p>
+        }
+    }
+</div>
+<div>
+    @if (Model.ResultDataOutside != null)
+    {
+        <hr />
+        @foreach (var item in Model.ResultDataOutside)
+        {
+            <h5 class="text-sm-center"><i>Average temperature Outside</i></h5>
+            <p class="text-sm-center p-sm-3 mb-2 bg-secondary text-white"><i>@item</i></p>
+        }
+    }
+</div>
+<div>
+    @if (Model.ResultData != null)
+    {
+        <hr />
+        @foreach (var item in Model.ResultData)
+        {
+            <p class="text-sm-center p-sm-3 mb-2 bg-secondary text-white"><i>@item</i></p>
+        }
+    }
+</div>
